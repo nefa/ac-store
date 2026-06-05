@@ -14,7 +14,7 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header>
+    <header className="sticky top-0 z-50">
       {/* ── Top bar ── */}
       <div className="bg-gray-100 text-gray-700 text-sm py-2">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-2">

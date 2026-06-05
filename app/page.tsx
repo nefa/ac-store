@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <>
       <HeroCarousel />
-      <ProductGrid products={featuredProducts} title="Produse Recomandate" />
+      <ProductGrid products={featuredProducts} title="Produse AC Recomandate" />
     </>
   );
 }
