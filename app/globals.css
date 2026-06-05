@@ -9,6 +9,9 @@
   --color-nav: #1e293b; /*dark blue-gray*/
   --color-search-bar: #f2f2f2; /*light gray*/
   --color-nav-hover: #2dcb74; /*green*/
+  --color-footer-bg: #1a1a1a; /*footer background*/
+  --color-footer-text: #9ca3af; /*footer muted text*/
+  --color-footer-muted: #6b7280; /*footer dimmer text*/
   --font-sans: var(--font-geist-sans); /*font*/
 }
 
