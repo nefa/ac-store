@@ -106,10 +106,104 @@ export const products: Product[] = [
       { label: "Wi-Fi", value: "Da" },
     ],
   },
+  {
+    id: 5,
+    name: "Filtru Aer Universal Aer Condiționat",
+    slug: "filtru-aer-universal",
+    image: "/img/products/placeholder.svg",
+    images: ["/img/products/placeholder.svg"],
+    price: 49,
+    inStock: true,
+    rating: 4,
+    reviewCount: 12,
+    category: "Piese",
+    sku: "FILTRU-UNIV-01",
+    description:
+      "Filtru de aer universal compatibil cu majoritatea aparatelor de aer condiționat rezidențiale. Captează praful, polenul și particulele fine pentru un aer mai curat.",
+    specs: [
+      { label: "Tip", value: "Filtru PM2.5" },
+      { label: "Dimensiuni", value: "30 × 25 cm (tăiabil)" },
+      { label: "Compatibilitate", value: "Universal" },
+      { label: "Durata de viață", value: "3–6 luni" },
+    ],
+  },
+  {
+    id: 6,
+    name: "Telecomandă Universală Aer Condiționat",
+    slug: "telecomanda-universala-ac",
+    image: "/img/products/placeholder.svg",
+    images: ["/img/products/placeholder.svg"],
+    price: 89,
+    originalPrice: 120,
+    inStock: true,
+    rating: 4,
+    reviewCount: 27,
+    category: "Piese",
+    sku: "REMOTE-UNIV-01",
+    description:
+      "Telecomandă universală compatibilă cu peste 2000 de modele de aer condiționat. Programare simplă, display LCD și funcție timer.",
+    specs: [
+      { label: "Compatibilitate", value: "2000+ modele" },
+      { label: "Frecvență", value: "38 kHz IR" },
+      { label: "Baterii", value: "2 × AAA (incluse)" },
+      { label: "Display", value: "LCD retroiluminat" },
+    ],
+  },
+  {
+    id: 7,
+    name: "Kit Instalare Aer Condiționat 3m",
+    slug: "kit-instalare-ac-3m",
+    image: "/img/products/placeholder.svg",
+    images: ["/img/products/placeholder.svg"],
+    price: 185,
+    originalPrice: 220,
+    inStock: true,
+    rating: 5,
+    reviewCount: 8,
+    category: "Piese",
+    sku: "KIT-INST-3M",
+    description:
+      "Kit complet de instalare pentru aer condiționat, include țevi de cupru izolate, cablu electric, suport unitate externă și accesorii de prindere.",
+    specs: [
+      { label: "Lungime țevi", value: "3 m" },
+      { label: "Diametru țeavă", value: "1/4\" + 3/8\"" },
+      { label: "Cablu electric", value: "3 × 1.5 mm²" },
+      { label: "Conținut", value: "Țevi, cablu, suport, accesorii" },
+    ],
+  },
+  {
+    id: 8,
+    name: "Agent Frigorific R32 — Butelie 1 kg",
+    slug: "freon-r32-1kg",
+    image: "/img/products/placeholder.svg",
+    images: ["/img/products/placeholder.svg"],
+    price: 145,
+    inStock: true,
+    rating: 5,
+    reviewCount: 5,
+    category: "Piese",
+    sku: "R32-1KG",
+    description:
+      "Agent frigorific R32 în butelie de 1 kg, pentru reîncărcarea aparatelor de aer condiționat moderne. GWP redus față de R410A.",
+    specs: [
+      { label: "Tip agent", value: "R32 (Difluorometan)" },
+      { label: "Greutate netă", value: "1 kg" },
+      { label: "GWP", value: "675" },
+      { label: "Utilizare", value: "Tehnicieni autorizați" },
+    ],
+  },
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
+}
+
+export function getProductsByCategory(category: string): Product[] {
+  return products.filter((p) => p.category === category);
+}
+
+export function getDiscountedProducts(): Product[] {
+  return products.filter((p) => p.originalPrice !== undefined);
 }
 
 export function getAllSlugs(): string[] {
