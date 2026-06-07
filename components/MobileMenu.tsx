@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useState } from "react";
 
-type NavLink = { label: string; href: string };
+type Child = { label: string; href: string };
+type NavLink = { label: string; href: string; children?: Child[] };
 
 export default function MobileMenu({
   navLinks,
@@ -17,9 +18,10 @@ export default function MobileMenu({
   rightActions: React.ReactNode;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
   return (
-    <div className="bg-[#1e293b] text-white shadow-md">
+    <div className="bg-nav text-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-6">
         {logo}
         {desktopNav}
@@ -36,20 +38,54 @@ export default function MobileMenu({
       </div>
 
       {menuOpen && (
-        <nav className="md:hidden border-t border-white/10 px-4 py-3 flex flex-col gap-3">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="text-gray-300 hover:text-[#2dcb74] text-sm font-medium py-1 transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="md:hidden border-t border-white/10 px-4 py-3 flex flex-col gap-1">
+          {navLinks.map((link) =>
+            link.children ? (
+              <div key={link.href}>
+                <button
+                  onClick={() => setExpandedItem((v) => (v === link.href ? null : link.href))}
+                  className="w-full flex items-center justify-between text-gray-300 hover:text-primary text-sm font-medium py-2 transition-colors"
+                >
+                  {link.label}
+                  <ChevronIcon open={expandedItem === link.href} />
+                </button>
+                {expandedItem === link.href && (
+                  <div className="pl-4 flex flex-col gap-1 border-l border-white/10 mb-1">
+                    {link.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="text-gray-400 hover:text-primary text-sm py-1.5 transition-colors"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-gray-300 hover:text-primary text-sm font-medium py-2 transition-colors"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
       )}
     </div>
+  );
+}
+
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className={`transition-transform ${open ? "rotate-180" : ""}`}>
+      <path d="M7 10l5 5 5-5z" />
+    </svg>
   );
 }
 

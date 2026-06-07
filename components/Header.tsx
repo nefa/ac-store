@@ -2,9 +2,21 @@ import Link from "next/link";
 import SearchBar from "./SearchBar";
 import TruckAnimation from "./TruckAnimation";
 import MobileMenu from "./MobileMenu";
+import NavDropdown from "./NavDropdown";
 
 const navLinks = [
-  { label: "Servicii", href: "/servicii" },
+  {
+    label: "Servicii",
+    href: "/servicii",
+    children: [
+      { label: "HVAC", href: "/servicii/hvac" },
+      { label: "HORECA", href: "/servicii/horeca" },
+      { label: "Siguranță Profesională", href: "/servicii/siguranta" },
+      { label: "Dispozitive Medicale", href: "/servicii/medical" },
+      { label: "Construcții Edilitare", href: "/servicii/edilitare" },
+      { label: "Mentenanță Preventivă", href: "/servicii/mentenanta" },
+    ],
+  },
   { label: "Aer Conditionat", href: "/produse/aparate" },
   { label: "Piese & Accesorii", href: "/produse/piese" },
   { label: "Oferte", href: "/oferte" },
@@ -69,19 +81,7 @@ export default function Header() {
             </span>
           </Link>
         }
-        desktopNav={
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-gray-300 hover:text-[#2dcb74] transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        }
+        desktopNav={<NavDropdown navLinks={navLinks} />}
         rightActions={
           <Link
             href="/cos"
