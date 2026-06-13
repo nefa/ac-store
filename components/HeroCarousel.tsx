@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 
 const slides = [
   {
-    id: 1,
+    id: 2,
     image: "/img/slide1.jpg",
     placeholderBg: "#0f172a",
     placeholderAccent: "#1e3a8a",
@@ -15,7 +15,7 @@ const slides = [
     href: "/produse/aparate",
   },
   {
-    id: 2,
+    id: 3,
     image: "/img/slide2.jpg",
     placeholderBg: "#052e16",
     placeholderAccent: "#14532d",
@@ -25,7 +25,7 @@ const slides = [
     href: "/produse/piese",
   },
   {
-    id: 3,
+    id: 4,
     image: "/img/slide3.jpg",
     placeholderBg: "#1c1917",
     placeholderAccent: "#7c2d12",
@@ -33,6 +33,16 @@ const slides = [
     subtitle: "Reduceri de până la 30% la aparatele selectate. Stoc limitat.",
     cta: "Vezi ofertele",
     href: "/oferte",
+  },
+  {
+    id: 5,
+    image: "/img/microclima-banner.png",
+    placeholderBg: "#0f172a",
+    placeholderAccent: "#1e3a8a",
+    // headline: "Aparate de Aer Condiționat",
+    // subtitle: "Modele premium pentru orice spațiu. Eficiență energetică A+++.",
+    cta: "Vezi aparatele",
+    href: "/produse/aparate",
   },
 ];
 
@@ -71,7 +81,10 @@ export default function HeroCarousel() {
           key={slide.id}
           aria-hidden={i !== current}
           className="absolute inset-0 transition-opacity duration-700"
-          style={{ opacity: i === current ? 1 : 0, pointerEvents: i === current ? "auto" : "none" }}
+          style={{
+            opacity: i === current ? 1 : 0,
+            pointerEvents: i === current ? "auto" : "none",
+          }}
         >
           {/* Background — image with placeholder fallback color */}
           <div
@@ -91,18 +104,28 @@ export default function HeroCarousel() {
 
           {/* Text content */}
           <div className="relative h-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-center gap-4">
-            <h2 className="text-white font-bold leading-tight" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.75rem)" }}>
+            <h2
+              className="text-white font-bold leading-tight"
+              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.75rem)" }}
+            >
               {slide.headline}
             </h2>
-            <p className="text-white/80 max-w-md" style={{ fontSize: "clamp(0.9rem, 1.8vw, 1.125rem)" }}>
+            <p
+              className="text-white/80 max-w-md"
+              style={{ fontSize: "clamp(0.9rem, 1.8vw, 1.125rem)" }}
+            >
               {slide.subtitle}
             </p>
             <Link
               href={slide.href}
               className="self-start mt-2 px-6 py-3 rounded-md font-semibold text-sm text-white transition-colors"
               style={{ backgroundColor: "#2dcb74" }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#22a85e")}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#2dcb74")}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = "#22a85e")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "#2dcb74")
+              }
             >
               {slide.cta}
             </Link>
@@ -139,7 +162,8 @@ export default function HeroCarousel() {
             style={{
               width: i === current ? 24 : 8,
               height: 8,
-              backgroundColor: i === current ? "#2dcb74" : "rgba(255,255,255,0.55)",
+              backgroundColor:
+                i === current ? "#2dcb74" : "rgba(255,255,255,0.55)",
             }}
           />
         ))}
@@ -150,7 +174,16 @@ export default function HeroCarousel() {
 
 function ChevronLeft() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M15 18l-6-6 6-6" />
     </svg>
   );
@@ -158,7 +191,16 @@ function ChevronLeft() {
 
 function ChevronRight() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M9 18l6-6-6-6" />
     </svg>
   );
