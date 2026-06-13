@@ -30,10 +30,11 @@ export default function Header() {
       {/* ── Top bar ── */}
       <div className="bg-gray-100 text-gray-700 text-sm py-2">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-2">
-
           {/* LEFT: delivery text — hidden on mobile, visible sm+ */}
           <span className="hidden sm:flex items-center gap-1 shrink-0 whitespace-nowrap">
-            <span className="sr-only">Livrare gratuită la comenzi peste 1500 RON</span>
+            <span className="sr-only">
+              Livrare gratuită la comenzi peste 1500 RON
+            </span>
             <TruckAnimation text="Livrare gratuită la comenzi peste 1500 RON" />
           </span>
 
@@ -75,7 +76,11 @@ export default function Header() {
         navLinks={navLinks}
         logo={
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <img src="/img/logo_green.png" alt="Logo" className="h-8 w-auto bg-[#2dcb74]" />
+            <img
+              src="/img/microclimasystems.jpeg"
+              alt="Logo"
+              className="h-16 w-auto bg-[#2dcb74]"
+            />
             <span className="text-white font-semibold text-xl tracking-tight">
               AC Service
             </span>

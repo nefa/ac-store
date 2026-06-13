@@ -12,7 +12,15 @@
   --color-footer-bg: #1a1a1a; /*footer background*/
   --color-footer-text: #9ca3af; /*footer muted text*/
   --color-footer-muted: #6b7280; /*footer dimmer text*/
+  --color-deep-navy-blue: #01122D;
   --font-sans: var(--font-geist-sans); /*font*/
+
+  /* Microclima Systems logo palette (reference only, not yet wired into theme) */
+  --color-microclima-navy: #0B1B3D; /*dark navy background*/
+  --color-microclima-blue: #4FA0E3; /*bright accent blue - swoosh/fan*/
+  --color-microclima-blue-light: #8FC6F0; /*light blue accent*/
+  --color-microclima-blue-mid: #5B8FD6; /*medium blue - "SYSTEMS" text*/
+  --color-microclima-white: #FFFFFF; /*logo white*/
 }
 
 body {
